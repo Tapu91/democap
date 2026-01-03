@@ -1,0 +1,31 @@
+### Get Service Metadata
+GET http://localhost:4004/$metadata
+
+### Get Catalog Service Document
+GET http://localhost:4004/odata/v4/catalog/
+
+### Browse All Incidents (replace with your entity)
+GET http://localhost:4004/odata/v4/processor/Incidents
+
+### Get Single Incident by ID (example GUID)
+GET http://localhost:4004/odata/v4/processor/Incidents(guid'12345678-1234-1234-1234-123456789012')
+
+### Create a New Incident
+POST http://localhost:4004/odata/v4/processor/Incidents
+Content-Type: application/json
+
+{
+  "title": "Test Incident via HTTP",
+  "urgency_code": "H"
+}
+
+### Update an Incident (PATCH)
+PATCH http://localhost:4004/odata/v4/processor/Incidents(guid'12345678-1234-1234-1234-123456789012')
+Content-Type: application/json
+
+{
+  "title": "Updated via HTTP Test"
+}
+
+### Delete an Incident
+DELETE http://localhost:4004/odata/v4/processor/Incidents(guid'12345678-1234-1234-1234-123456789012')

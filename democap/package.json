@@ -7,12 +7,36 @@
     "express": "^4"
   },
   "devDependencies": {
+    "@cap-js/cds-test": "^0.4.1",
     "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": "^9",
     "cds-plugin-ui5": "^0.13.0"
   },
   "scripts": {
+    "test": "npx jest tests/test.js",
     "start": "cds-serve",
-    "watch-demoincident": "cds watch --port 4005 --open ns.demoincident/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-demoincident": "cds watch --port 4006 --open ns.demoincident/index.html?sap-ui-xx-viewCache=false --livereload false"
+  },
+  "cds": {
+    "requires": {
+      "[development]": {
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "tapan": {
+              "roles": [
+                "support"
+              ]
+            },
+            "manmohan": {
+              "roles": [
+                "support"
+              ]
+            }
+          }
+        }
+      }
+    }
   },
   "private": true,
   "workspaces": [

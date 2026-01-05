@@ -4,7 +4,6 @@ specVersion: "4.0"
 metadata:
   name: ns.demoincident
 type: application
-
 # server:
 #   customMiddleware:
 #     - name: fiori-tools-proxy

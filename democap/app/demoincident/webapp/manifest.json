@@ -17,11 +17,23 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "/odata/v4/processor/",
+        "uri": "odata/v4/processor/",
         "type": "OData",
         "settings": {
           "annotations": [],
           "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "demoincident-display": {
+          "semanticObject": "demoincident",
+          "action": "display",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
         }
       }
     }
@@ -116,7 +128,8 @@
                     "type": "ResponsiveTable"
                   }
                 }
-              }
+              },
+              "initialLoad": "Enabled"
             }
           }
         },
@@ -127,7 +140,17 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/Incidents"
+              "contextPath": "/Incidents",
+              "controlConfiguration": {
+                "conversation/@com.sap.vocabularies.UI.v1.LineItem#i18nConversation": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable",
+                    "creationMode": {
+                      "name": "Inline"
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -137,5 +160,9 @@
   "sap.fiori": {
     "registrationIds": [],
     "archeType": "transactional"
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "democap.service"
   }
 }
